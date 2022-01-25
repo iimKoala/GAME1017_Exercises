@@ -23,6 +23,11 @@ private: // private properties.
 	SDL_Renderer* m_pRenderer;
 
 private: // private method prototypes.
+	Engine() {
+
+		cout << "Creating instance of engine..." << endl;
+
+	}
 	int Init(const char* title, int xPos, int yPos, int width, int height, int flags);
 	void Clean();
 	void Wake();
@@ -33,9 +38,10 @@ private: // private method prototypes.
 	void Sleep();
 
 public: // public method prototypes.
-	Engine() {}
+	
 	int Run();
 	// Add static method for singleton here
+	static Engine& Instance();
 	SDL_Renderer* GetRenderer() { return m_pRenderer; }
 	bool KeyDown(SDL_Scancode c);
 };
