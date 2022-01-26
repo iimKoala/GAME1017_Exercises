@@ -65,7 +65,7 @@ bool Engine::KeyDown(SDL_Scancode c)
 
 void Engine::Update()
 {
-	
+	STMA::Update();
 }
 
 void Engine::Render()
