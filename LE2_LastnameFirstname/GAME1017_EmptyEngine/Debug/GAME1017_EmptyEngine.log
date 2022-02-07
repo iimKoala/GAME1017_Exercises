@@ -1,9 +1,0 @@
-﻿  MathManager.cpp
-D:\_\__SDL Projects\GAME1017\_Winter2022\GAME1017_Exercises\LE2_LastnameFirstname\GAME1017_EmptyEngine\MathManager.cpp(22,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Turret.cpp
-D:\_\__SDL Projects\GAME1017\_Winter2022\GAME1017_Exercises\LE2_LastnameFirstname\GAME1017_EmptyEngine\Turret.cpp(38,37): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-D:\_\__SDL Projects\GAME1017\_Winter2022\GAME1017_Exercises\LE2_LastnameFirstname\GAME1017_EmptyEngine\Turret.cpp(38,37): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\_\__SDL Projects\GAME1017\_Winter2022\GAME1017_Exercises\LE2_LastnameFirstname\GAME1017_EmptyEngine\Turret.cpp(38,64): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-D:\_\__SDL Projects\GAME1017\_Winter2022\GAME1017_Exercises\LE2_LastnameFirstname\GAME1017_EmptyEngine\Turret.cpp(38,64): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-  GAME1017_EmptyEngine.vcxproj -> D:\_\__SDL Projects\GAME1017\_Winter2022\GAME1017_Exercises\LE2_LastnameFirstname\Debug\GAME1017_EmptyEngine.exe
