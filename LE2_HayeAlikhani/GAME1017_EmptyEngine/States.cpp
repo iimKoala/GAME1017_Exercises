@@ -118,14 +118,24 @@ void GameState::Update()
 
 	// Cleanup bullets and enemies that go off screen.
 
-	for (unsigned i=0; i < s_bullets.size(); i++)
-		if (s_bullets =! Engine::m_pWindow)
+	for (unsigned i = 0; i < s_bullets.size(); i++)
+		if (s_bullets[i]->m_dst.x > WIDTH || s_bullets[i]->m_dst.x < 0 || s_bullets[i]->m_dst.y > HEIGHT || s_bullets[i]->m_dst.y < 0)
 		{
 			delete s_bullets[i];
 			s_bullets[i] = nullptr;
+			s_bullets.erase(s_bullets.begin() + i);
+			s_bullets.shrink_to_fit();
+			cout << "Cleared bullets" << endl;
 		}
-	s_bullets.clear();
-	s_bullets.shrink_to_fit();
+	for (unsigned i = 0; i < s_enemies.size(); i++)
+		if (s_enemies[i]->GetPos().y > HEIGHT)
+		{
+			delete s_enemies[i];
+			s_enemies[i] = nullptr;
+			s_enemies.erase(s_enemies.begin() + i);
+			s_enemies.shrink_to_fit();
+			cout << "Cleared enemy" << endl;
+		}
 		// for all bullets
 			// if bullet goes off screen (four bounds checks)
 				// delete s_bullets[i]
