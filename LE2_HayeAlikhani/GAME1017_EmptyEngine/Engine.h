@@ -35,6 +35,7 @@ private: // private method prototypes.
 
 public: // public method prototypes.
 	int Run();
+	
 	// Add static method for singleton here
 	static Engine& Instance(); // We can invoke this without having an object of Engine.
 	SDL_Renderer* GetRenderer() { return m_pRenderer; }

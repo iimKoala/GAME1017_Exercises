@@ -118,6 +118,14 @@ void GameState::Update()
 
 	// Cleanup bullets and enemies that go off screen.
 
+	for (unsigned i=0; i < s_bullets.size(); i++)
+		if (s_bullets =! Engine::m_pWindow)
+		{
+			delete s_bullets[i];
+			s_bullets[i] = nullptr;
+		}
+	s_bullets.clear();
+	s_bullets.shrink_to_fit();
 		// for all bullets
 			// if bullet goes off screen (four bounds checks)
 				// delete s_bullets[i]
