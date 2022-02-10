@@ -10,9 +10,10 @@ class CollisionManager
 {
 public:
 	// AABB-AABB overloads.
-	static bool AABBCheck(const SDL_Rect& object1, const SDL_Rect& object2); // Two int-based Rects.
-	static bool AABBCheck(const SDL_Rect& object1, const SDL_FRect& object2); // Int-based Rect, Float-based Rect.
-	static bool AABBCheck(const SDL_FRect& object1, const SDL_FRect& object2); // Two float-based Rects.
+	static bool AABBCheck( SDL_Rect& object1,  SDL_Rect& object2); // Two int-based Rects.
+	static bool AABBCheck( SDL_Rect& object1,  SDL_FRect& object2); // Int-based Rect, Float-based Rect.
+	static bool AABBCheck( SDL_FRect& object1,  SDL_FRect& object2); // Two float-based Rects.
+	
 
 	// AABB-Line overloads.
 	static bool AABBLineCheck(const SDL_Rect& object1, SDL_Point object2_start, SDL_Point object2_end); // Int-based.
