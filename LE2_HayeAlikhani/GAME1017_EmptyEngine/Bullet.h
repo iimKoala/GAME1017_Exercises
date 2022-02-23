@@ -7,10 +7,11 @@
 class Bullet
 {
 private:
-	SDL_FRect m_dst;
+	
 	double m_dx, m_dy;
 
 public:
+	SDL_FRect m_dst;
 	Bullet(SDL_FRect dst, double dx, double dy);
 	void Update();
 	void Render();

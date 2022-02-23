@@ -150,6 +150,7 @@
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="States.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="Turret.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,11 +163,15 @@
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="States.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="Turret.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Img\Enemies.png" />
     <Image Include="Img\Turret.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="TurretPos.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

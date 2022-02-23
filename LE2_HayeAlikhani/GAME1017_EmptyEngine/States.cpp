@@ -4,9 +4,12 @@
 #include "EventManager.h"
 #include "TextureManager.h"
 #include "Engine.h"
-// Include tinyxml2.h
+#include "tinyxml2.h"
+#include <vector>
+#include "CollisionManager.h"
+#include "Enemy.h"
 using namespace std;
-
+using namespace tinyxml2;
 void State::Render()
 {
 	SDL_RenderPresent(Engine::Instance().GetRenderer());
@@ -87,10 +90,28 @@ void GameState::Enter()
 {
 	TEMA::Load("Img/Turret.png", "turret");
 	TEMA::Load("Img/Enemies.png", "enemy");
-	s_enemies.push_back(new Enemy({512, -200, 40, 57}));
+	s_enemies.push_back(new Enemy({ 512, -200, 40, 57 }));
 	// Create the DOM and load the XML file.
 	// Iterate through the Turret elements in the file and push_back new Turrets into the m_turrets vector.
 		// Look at the last two examples from Week 3
+
+	XMLDocument xmlDoc;
+	xmlDoc.LoadFile("TurretPos.xml");
+	XMLNode* pRoot = xmlDoc.FirstChildElement("Root");
+	// Now let's create objects from the XML file.
+	XMLElement* pElement = pRoot->FirstChildElement("Turret");
+
+	
+
+	while (pElement != nullptr)
+	{
+		int X, Y;
+
+		pElement->QueryIntAttribute("Height", &X);
+		pElement->QueryIntAttribute("Width", &Y);
+		m_turrets.push_back(new Turret({ X, Y, 100,100 }));
+		pElement = pElement->NextSiblingElement("Turret");
+	}
 }
 
 void GameState::Update()
@@ -118,14 +139,24 @@ void GameState::Update()
 
 	// Cleanup bullets and enemies that go off screen.
 
-	for (unsigned i=0; i < s_bullets.size(); i++)
-		if (s_bullets =! Engine::m_pWindow)
+	for (unsigned i = 0; i < s_bullets.size(); i++)
+		if (s_bullets[i]->m_dst.x > WIDTH || s_bullets[i]->m_dst.x < 0 || s_bullets[i]->m_dst.y > HEIGHT || s_bullets[i]->m_dst.y < 0)
 		{
 			delete s_bullets[i];
 			s_bullets[i] = nullptr;
+			s_bullets.erase(s_bullets.begin() + i);
+			s_bullets.shrink_to_fit();
+			cout << "Cleared bullets" << endl;
 		}
-	s_bullets.clear();
-	s_bullets.shrink_to_fit();
+	for (unsigned i = 0; i < s_enemies.size(); i++)
+		if (s_enemies[i]->GetPos().y > HEIGHT)
+		{
+			delete s_enemies[i];
+			s_enemies[i] = nullptr;
+			s_enemies.erase(s_enemies.begin() + i);
+			s_enemies.shrink_to_fit();
+			cout << "Cleared enemy" << endl;
+		}
 		// for all bullets
 			// if bullet goes off screen (four bounds checks)
 				// delete s_bullets[i]
@@ -134,6 +165,9 @@ void GameState::Update()
 		// for all enemies, similar to above
 
 	// Check for collisions with bullets and enemies.
+
+
+
 	
 		// for all bullets
 			// for all enemies
@@ -166,6 +200,19 @@ void GameState::Exit()
 	// You can clear all children of the root node by calling .DeleteChildren(); and this will essentially clear the DOM.
 	// Iterate through all the turrets and save their positions as child elements of the root node in the DOM.
 	// Make sure to save to the XML file.
+	XMLDocument xmlDoc; 
+	XMLNode* pRoot = xmlDoc.NewElement("Root");
+	xmlDoc.InsertEndChild(pRoot);
+	XMLElement* pElement;
+	for (unsigned i = 0; i < m_turrets.size(); i++) 
+	{
+		pElement = xmlDoc.NewElement("Turret");
+		pElement->SetAttribute("Width", m_turrets[i]->GetPos().x);
+		pElement->SetAttribute("Height", m_turrets[i]->GetPos().y);
+		pRoot->InsertEndChild(pElement);
+	}
+	xmlDoc.SaveFile("TurretPos.xml");
+
 	ClearTurrets();
 	for (unsigned i = 0; i < s_enemies.size(); i++)
 	{
@@ -181,11 +228,12 @@ void GameState::Exit()
 	}
 	s_bullets.clear();
 	s_bullets.shrink_to_fit();
+	
 }
 
 void GameState::Resume()
 {
-	
+
 }
 
 // This is how static properties are allocated.
