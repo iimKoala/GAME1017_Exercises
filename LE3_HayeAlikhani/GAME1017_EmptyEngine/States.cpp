@@ -111,7 +111,7 @@ void GameState::Enter() // Used for initialization.
 	m_objects.push_back(pair<string, GameObject*>("bg",
 		new Image({ 0, 0, 1024, 768 }, { 0, 0, 1024, 768 }, "bg")));
 	m_objects.push_back(pair<string, GameObject*>("astf",
-		new AsteroidField(24)));
+		new AsteroidField(5)));
 	m_objects.push_back(pair<string, GameObject*>("ship",
 		new ShipAsteroids({ 0, 0, 100, 100 }, { 462.0f, 334.0f, 100.0f, 100.0f })));
 	SOMA::SetSoundVolume(16);

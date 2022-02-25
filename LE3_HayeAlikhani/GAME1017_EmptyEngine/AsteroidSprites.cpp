@@ -108,11 +108,15 @@ void Bullet::Render()
 }
 
 ShipAsteroids::ShipAsteroids(SDL_Rect s, SDL_FRect d) :
-	AnimatedSpriteObject(s, d), m_state(STATE_IDLING) // Add movement initializers.
+	AnimatedSpriteObject(s, d), m_state(STATE_IDLING),
+	m_angle(270), m_velMax(6.0), m_rotspeed(5.0), m_thrust(0.5),m_radius(38.0) // Add movement initializers.
 {
+	 
+
 	// Add movement initializers.
+	m_dx = m_dy = m_velx = m_vely = 0.0;
 	m_center = { (m_dst.x + m_dst.w / 2.0f), (m_dst.y + m_dst.h / 2.0f) };
-	SetAnimation(1, 0, 1);
+	SetAnimation(1, 0, 1); // idle animation
 }
 
 ShipAsteroids::~ShipAsteroids()
@@ -124,14 +128,26 @@ ShipAsteroids::~ShipAsteroids()
 		a = nullptr; // ;)
 	}
 	m_bullets.clear();
+	m_bullets.shrink_to_fit();
 }
 
 
 void ShipAsteroids::Update()
 {
 	// Rotate player. State-independent.
-	
+	if (EVMA::KeyHeld(SDL_SCANCODE_A))
+		m_angle -= m_rotspeed;
+	else if (EVMA::KeyHeld(SDL_SCANCODE_D))
+		m_angle += m_rotspeed;
 	// Spawn bullet.
+	if (EVMA::MousePressed(1))
+	{
+		m_bullets.push_back(new Bullet({500, 0, 18, 24},
+			{ m_center.x - 9, m_center.y - 12, 18, 24 },
+			"sprites", m_angle));
+		m_bullets.shrink_to_fit();
+		SOMA::PlaySound("fire");
+	}
 
 	// Checking animation states.
 	switch (m_state)
@@ -145,13 +161,16 @@ void ShipAsteroids::Update()
 		}
 		break;
 	case STATE_MOVING:
-		
+		m_dx = cos(MAMA::Deg2Rad(m_angle - 90));
+		m_dy = sin(MAMA::Deg2Rad(m_angle - 90));
 		// Update velocities.
-		
+		m_velx += m_dx * m_thrust;
+		m_vely += m_dy * m_thrust;
 		// Clamp velocities.
-		
+		m_velx = min(max(m_velx, -(fabs(m_dx) * m_velMax)),fabs(m_dx)*m_velMax);
+		m_vely = min(max(m_vely, -(fabs(m_dy) * m_velMax)), fabs(m_dy)*m_velMax);
 		// Check for idle transition.
-		if (!EVMA::KeyHeld(SDL_SCANCODE_SPACE) && !EVMA::KeyHeld(SDL_SCANCODE_W))
+		if (EVMA::KeyReleased(SDL_SCANCODE_SPACE) || EVMA::KeyReleased(SDL_SCANCODE_W))
 		{
 			m_state = STATE_IDLING;
 			SetAnimation(1, 0, 1);
@@ -160,14 +179,19 @@ void ShipAsteroids::Update()
 		break;
 	}
 	// Apply drag and finish movement.
-	
+	m_velx *= 0.985;
+	m_vely *= 0.985;
+	m_center.x +=(float)m_velx;
+	m_center.x +=(float)m_vely;
+
 	// Wrap on screen.
 	if (m_center.x < -m_dst.w / 2) m_center.x = WIDTH + m_dst.w / 2;
 	else if (m_center.x > WIDTH + m_dst.w / 2) m_center.x = 0 - m_dst.w / 2;
 	if (m_center.y < -m_dst.h / 2) m_center.y = HEIGHT + m_dst.h / 2;
 	else if (m_center.y > HEIGHT + m_dst.h / 2) m_center.y = 0 - m_dst.h / 2;
 	// Update dest rectangle.
-	
+	m_dst.x = m_center.x - m_dst.w / 2;
+	m_dst.y = m_center.y - m_dst.h / 2;
 	// Invoke the animation.
 	Animate();
 	// Update bullets.
@@ -189,5 +213,5 @@ void ShipAsteroids::Render()
 	for (const auto b : m_bullets)
 		b->Render();
 	SDL_RenderCopyExF(Engine::Instance().GetRenderer(), TEMA::GetTexture("sprites"),
-		&m_src, &m_dst, /*m_angle*/ 0, nullptr, SDL_FLIP_NONE);
+		&m_src, &m_dst, m_angle , nullptr, SDL_FLIP_NONE);
 }

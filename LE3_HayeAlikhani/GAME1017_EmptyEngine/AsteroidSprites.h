@@ -67,8 +67,15 @@ public: // Methods.
 	vector<Bullet*>& GetBullets() { return m_bullets; }
 private: // Properties.
 	SDL_FPoint m_center;
+	double m_radius;
 	// Properties for movement:
-	
+	double m_angle,
+		m_dx, m_dy,
+		m_velx, m_vely,
+		m_velMax,
+		m_rotspeed,
+		m_thrust;
+
 	enum PlayerState { STATE_IDLING, STATE_MOVING } m_state;
 	vector<Bullet*> m_bullets;
 };
