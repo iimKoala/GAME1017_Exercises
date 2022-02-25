@@ -168,7 +168,7 @@ void ShipAsteroids::Update()
 		m_vely += m_dy * m_thrust;
 		// Clamp velocities.
 		m_velx = min(max(m_velx, -(fabs(m_dx) * m_velMax)),fabs(m_dx)*m_velMax);
-		m_vely = min(max(m_vely, -(fabs(m_dy) * m_velMax)), fabs(m_dy)*m_velMax);
+		m_vely = min(max(m_vely, -(fabs(m_dy) * m_velMax)),fabs(m_dy)*m_velMax);
 		// Check for idle transition.
 		if (EVMA::KeyReleased(SDL_SCANCODE_SPACE) || EVMA::KeyReleased(SDL_SCANCODE_W))
 		{
@@ -182,7 +182,7 @@ void ShipAsteroids::Update()
 	m_velx *= 0.985;
 	m_vely *= 0.985;
 	m_center.x +=(float)m_velx;
-	m_center.x +=(float)m_vely;
+	m_center.y +=(float)m_vely;
 
 	// Wrap on screen.
 	if (m_center.x < -m_dst.w / 2) m_center.x = WIDTH + m_dst.w / 2;

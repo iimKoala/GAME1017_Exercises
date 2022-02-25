@@ -63,7 +63,7 @@ public: // Methods.
 	void Update();
 	void Render();
 	const SDL_FPoint& GetCenter() { return m_center; }
-	const double& GetRadius() { /*return m_radius;*/ }
+	const double& GetRadius() { return m_radius; }
 	vector<Bullet*>& GetBullets() { return m_bullets; }
 private: // Properties.
 	SDL_FPoint m_center;
