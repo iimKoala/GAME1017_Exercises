@@ -1,2 +1,22 @@
-﻿  States.cpp
-  GAME1017_EmptyEngine.vcxproj -> C:\Users\Owner\Desktop\GBC\GAME1017_Exercises\LE2_HayeAlikhani\Debug\GAME1017_EmptyEngine.exe
+﻿  Bullet.cpp
+C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE2_HayeAlikhani\GAME1017_EmptyEngine\Bullet.cpp(8,17): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE2_HayeAlikhani\GAME1017_EmptyEngine\Bullet.cpp(9,17): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  CollisionManager.cpp
+  Enemy.cpp
+  Engine.cpp
+  EventManager.cpp
+  Main.cpp
+  MathManager.cpp
+C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE2_HayeAlikhani\GAME1017_EmptyEngine\MathManager.cpp(22,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  StateManager.cpp
+  States.cpp
+  TextureManager.cpp
+  tinyxml2.cpp
+  Turret.cpp
+C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE2_HayeAlikhani\GAME1017_EmptyEngine\Turret.cpp(38,37): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE2_HayeAlikhani\GAME1017_EmptyEngine\Turret.cpp(38,37): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE2_HayeAlikhani\GAME1017_EmptyEngine\Turret.cpp(38,64): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE2_HayeAlikhani\GAME1017_EmptyEngine\Turret.cpp(38,64): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  LINK : C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE2_HayeAlikhani\Debug\GAME1017_EmptyEngine.exe not found or not built by the last incremental link; performing full link
+  GAME1017_EmptyEngine.vcxproj -> C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE2_HayeAlikhani\Debug\GAME1017_EmptyEngine.exe
