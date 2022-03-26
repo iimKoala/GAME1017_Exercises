@@ -146,6 +146,7 @@
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MathManager.cpp" />
+    <ClCompile Include="PlatformPlayer.cpp" />
     <ClCompile Include="Primitives.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="StateManager.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MathManager.h" />
+    <ClInclude Include="PlatformPlayer.h" />
     <ClInclude Include="Primitives.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="StateManager.h" />

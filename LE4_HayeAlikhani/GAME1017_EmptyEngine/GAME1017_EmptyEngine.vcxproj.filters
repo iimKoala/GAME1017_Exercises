@@ -55,6 +55,7 @@
     <ClCompile Include="States.cpp">
       <Filter>States</Filter>
     </ClCompile>
+    <ClCompile Include="PlatformPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -93,6 +94,7 @@
     <ClInclude Include="States.h">
       <Filter>States</Filter>
     </ClInclude>
+    <ClInclude Include="PlatformPlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Img\Player.png">
