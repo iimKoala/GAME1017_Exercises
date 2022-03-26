@@ -1,6 +1,6 @@
 #include "TiledLevel.h"
 
-TiledLevel::TiledLevel(const unsigned short r, const unsigned short c, const int w, const int h, const char* tileData, const char* levelData, const char* tileKey) : m_rows(r), m_cols(c), m_tileKey(m_tileKey)
+TiledLevel::TiledLevel(const unsigned short r, const unsigned short c, const int w, const int h, const char* tileData, const char* levelData, const char* tileKey) : m_rows(r), m_cols(c), m_tileKey(tileKey)
 {
 	ifstream inFile(tileData);
 	if (inFile.is_open())
@@ -20,7 +20,7 @@ TiledLevel::TiledLevel(const unsigned short r, const unsigned short c, const int
 	{
 		char key;
 		m_level.resize(m_rows);
-		for (unsigned short row = 0; row <m_rows; row++)
+		for (unsigned short row = 0; row < m_rows; row++)
 		{
 			m_level[row].resize(m_cols);
 			for (unsigned short col = 0; col < m_cols; col++)

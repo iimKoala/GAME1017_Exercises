@@ -1,14 +1,2 @@
-﻿  Button3.cpp
-  CollisionManager.cpp
-  Engine.cpp
-  EventManager.cpp
-  Main.cpp
-  MathManager.cpp
-  Primitives.cpp
-  SoundManager.cpp
-  StateManager.cpp
-  States.cpp
-  TextureManager.cpp
-  TiledLevel.cpp
-  Generating Code...
+﻿  TiledLevel.cpp
   GAME1017_EmptyEngine.vcxproj -> C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE4_HayeAlikhani\Debug\GAME1017_EmptyEngine.exe
