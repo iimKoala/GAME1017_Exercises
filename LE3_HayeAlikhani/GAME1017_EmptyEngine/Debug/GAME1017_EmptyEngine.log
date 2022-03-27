@@ -1,2 +1,16 @@
-﻿  States.cpp
-  GAME1017_EmptyEngine.vcxproj -> C:\Users\Owner\Desktop\GBC\GAME1017_Exercises\LE3_HayeAlikhani\Debug\GAME1017_EmptyEngine.exe
+﻿  AsteroidSprites.cpp
+  Button3.cpp
+  CollisionManager.cpp
+  Engine.cpp
+  EventManager.cpp
+  Main.cpp
+  MathManager.cpp
+  Primitives.cpp
+  SoundManager.cpp
+  StateManager.cpp
+  States.cpp
+  TextureManager.cpp
+  TiledLevel.cpp
+  Generating Code...
+  LINK : C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE3_HayeAlikhani\Debug\GAME1017_EmptyEngine.exe not found or not built by the last incremental link; performing full link
+  GAME1017_EmptyEngine.vcxproj -> C:\Users\Haye's PC\Desktop\GBC\GAME1017_Exercises\LE3_HayeAlikhani\Debug\GAME1017_EmptyEngine.exe

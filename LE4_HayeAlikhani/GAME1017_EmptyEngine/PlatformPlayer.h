@@ -11,6 +11,7 @@ class PlatformPlayer :   public AnimatedSpriteObject
 {
 public:
 	PlatformPlayer(SDL_Rect s, SDL_FRect d);
+
 	void Update();
 	void Render();
 	void Stop();
@@ -31,6 +32,7 @@ private:
 		m_maxVelX, m_maxVelY,
 		m_drag, m_grav;
 	PlayerState m_state;
+	double angle;
 };
 #endif
 
