@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _ENGINE_H_
+#define _ENGINE_H_
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
@@ -35,3 +37,4 @@ public: // Public methods.
 	bool KeyDown(SDL_Scancode c);
 	SDL_Renderer* GetRenderer();
 };
+#endif
