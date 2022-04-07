@@ -103,7 +103,7 @@ void Engine::Update()
 		m_vec.erase(m_vec.begin());
 		if (m_gapCtr++ % m_gapMax == 0)
 		{
-			SDL_Color col = { 100 + rand() % 156 , 100 + rand() % 156 , 100 + rand() % 156 ,255 };
+			
 			m_vec.push_back(m_protos[m_keys[rand()%4].c_str()]->Clone());
 		}
 		else m_vec.push_back(new Box({ 1024, 384 }));
