@@ -31,5 +31,7 @@ public:
 		void Render();
 		const SDL_Point GetPos() { return m_pos; }
 
+	
+
 };
 #endif

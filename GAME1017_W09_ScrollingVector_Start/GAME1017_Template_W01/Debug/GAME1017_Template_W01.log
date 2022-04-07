@@ -1,5 +1,4 @@
-﻿  Engine.cpp
-C:\Users\Owner\Desktop\GBC\GAME1017_Exercises\GAME1017_W09_ScrollingVector_Start\GAME1017_Template_W01\Engine.cpp(101,26): warning C4838: conversion from 'int' to 'Uint8' requires a narrowing conversion
-C:\Users\Owner\Desktop\GBC\GAME1017_Exercises\GAME1017_W09_ScrollingVector_Start\GAME1017_Template_W01\Engine.cpp(101,47): warning C4838: conversion from 'int' to 'Uint8' requires a narrowing conversion
-C:\Users\Owner\Desktop\GBC\GAME1017_Exercises\GAME1017_W09_ScrollingVector_Start\GAME1017_Template_W01\Engine.cpp(101,68): warning C4838: conversion from 'int' to 'Uint8' requires a narrowing conversion
+﻿  Box.cpp
+  Main.cpp
+  Generating Code...
   GAME1017_Template_W01.vcxproj -> C:\Users\Owner\Desktop\GBC\GAME1017_Exercises\GAME1017_W09_ScrollingVector_Start\Debug\GAME1017_Template_W01.exe

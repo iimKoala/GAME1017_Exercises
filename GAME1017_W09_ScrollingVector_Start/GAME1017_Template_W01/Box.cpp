@@ -21,7 +21,9 @@ Box::~Box()
 
 Box* Box::Clone()
 {
-	return nullptr;
+	Box* clone = new Box(this->m_pos,false);
+	clone->m_pSprite = new Sprite(m_pSprite->m_dst, m_pSprite->m_color);
+	return clone;
 }
 
 void Box::Update()
@@ -30,7 +32,7 @@ void Box::Update()
 	if (m_pSprite != nullptr)
 	{
 		
-		m_pSprite->m_dst.x = m_pos.x;
+		m_pSprite->m_dst.x -= SCROLLSPEED;
 	}
 }
 
@@ -45,6 +47,8 @@ void Box::Render()
 	SDL_SetRenderDrawColor(Engine::Instance().GetRenderer(),156,230,200,255);
 	SDL_RenderDrawRect(Engine::Instance().GetRenderer(), &dst);
 }
+
+
 
 Sprite::Sprite():m_dst({ 0,0,0,0 }), m_color({255,255,255,255}) {}
 

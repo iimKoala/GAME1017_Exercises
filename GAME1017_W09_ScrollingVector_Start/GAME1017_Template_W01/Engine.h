@@ -6,6 +6,8 @@
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
 #include <vector>
+#include <map>
+#include <string>
 #include "Box.h"
 using namespace std;
 // Do not include any macros, initialized properties or full function definitions in this header.
@@ -21,6 +23,8 @@ private: // Private properties.
 
 	// Example-specific properties.
 	vector<Box*> m_vec;
+	map<string, Box*> m_protos;
+	std::string m_keys[4] = {"saw", "spike_wall", "spike_lg", "spike_sm"};
 	int m_gapCtr, m_gapMax;
 
 private: // Private methods.

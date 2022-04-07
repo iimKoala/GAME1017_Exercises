@@ -37,6 +37,11 @@ bool Engine::Init(const char* title, int xpos, int ypos, int width, int height, 
 	for (int i = 0; i < 9; i++)
 		m_vec.push_back(new Box({ 128 * i,384 }));
 	// Create the vector now.
+	m_protos.emplace("saw", new Box({ 1024, 384 }, true, { 1024, 384, 128 , 128 }, { 255,64 ,128,255}));
+	m_protos.emplace("spike_wall", new Box({ 1024, 384 }, true, { 1056, 0,64,384 }, {64,255,32,255}));
+	m_protos.emplace("spikes_lg", new Box({ 1024, 384 }, true, { 1024,448,128,64 }, { 234,215,84,255 }));
+	m_protos.emplace("spikes_sm", new Box({ 1024, 384 }, true, { 1056, 480,64,32 }, { 16,186,252,255 }));
+	//Create the map of boxes withs sprites
 	m_gapCtr = 0;
 	m_gapMax = 3;
 	m_bRunning = true; // Everything is okay, start the engine.
@@ -99,7 +104,7 @@ void Engine::Update()
 		if (m_gapCtr++ % m_gapMax == 0)
 		{
 			SDL_Color col = { 100 + rand() % 156 , 100 + rand() % 156 , 100 + rand() % 156 ,255 };
-			m_vec.push_back(new Box({ 1024, 384 }, true, { 1024, 384, 128 , 128 }, col));
+			m_vec.push_back(m_protos[m_keys[rand()%4].c_str()]->Clone());
 		}
 		else m_vec.push_back(new Box({ 1024, 384 }));
 	}
