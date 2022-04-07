@@ -20,6 +20,8 @@ private: // Private properties.
 	SDL_Renderer* m_pRenderer; // This represents the buffer to draw to.
 
 	// Example-specific properties.
+	vector<Box*> m_vec;
+	int m_gapCtr, m_gapMax;
 
 private: // Private methods.
 	bool Init(const char* title, int xpos, int ypos, int width, int height, int flags);
